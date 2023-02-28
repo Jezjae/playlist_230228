@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "245043936924",
+    "project_id": "playlist-c7603",
+    "storage_bucket": "playlist-c7603.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245043936924:android:70dadc7300c261a1fa3759",
+        "android_client_info": {
+          "package_name": "com.example.playlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245043936924-pvjhc5tbejsklcr6klsc6mv4i5aumamo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOg-flx7Q-i3v4mAv5fkpXwikj-n9_nds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245043936924-pvjhc5tbejsklcr6klsc6mv4i5aumamo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "245043936924-b5m442rab24i13orvn8qqv7f2aufej77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.theLastPlaylist"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
