@@ -14,9 +14,6 @@ class LikePlaylist extends GetView<LikePlayListController> {
 
   @override
   Widget build(BuildContext context) {
-
-    //controller.setLikePlaylist(); //컨트롤할 리스트 내용을 관심목록 리스트로 바꿔주기
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

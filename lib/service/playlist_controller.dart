@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_last_playlist/service/like_playlist_controller.dart';
+import 'package:the_last_playlist/service/popup_controller.dart';
 import '../const/const_zip.dart';
 import '../model/playlist_model.dart';
 import '../repo/play_list_network_repository.dart';
@@ -19,10 +20,6 @@ class PlayListController extends GetxController {
     await playListNetworkRepository.getPlayListModel().then((value) => {
       playList(value)
     });
-    // await playListNetworkRepository.getLikePlayListModel().then((value) => {
-    //   likePlayList(value)
-    // });
-
     super.onInit();
   }
 
@@ -35,7 +32,36 @@ class PlayListController extends GetxController {
     super.onClose();
   }
 
+  //일시정지 버튼 눌렀을때
+  void updatePause(int index){
+    playlistIndex = index;
+    PopupController.to.setIsPlay = false; //팝업창의 플레이:퓨즈 로 바꿔주는 것
+    playList[index].isPlay = false;
+    playList.refresh();
+  }
 
+  //플레이 버튼 눌렀을 때
+  void updatePlay(int index){
+    playlistIndex = index;
+    PopupController.to.setIsPlay = true; //팝업창의 플레이:퓨즈 로 바꿔주는 것
+    PopupController.to.setIsPopup = true; // 노래가 재생될 때 팝업창 띄워 주는 것
+
+    //PopupController.setPopupImage = playList[index].title!;
+    PopupController.to.setPopupTitle = playList[index].title!;
+    PopupController.to.setPopupName = playList[index].title!;
+
+    playList[index].isPlay = true;
+    playList.refresh();
+  }
+
+  //플레이 스탑버튼 눌렀을때
+  void updateStop(int index){
+    playlistIndex = index;
+    PopupController.to.setIsPlay = false; //팝업창의 플레이:퓨즈 로 바꿔주는 것
+    PopupController.to.setIsPopup = false; // 노래가 재생될 때 팝업창 띄워 주는 것
+    playList[index].isPlay = false;
+    playList.refresh();
+  }
 
   //좋아요 업데이트
   void updateFav(String plKey, int index) async {

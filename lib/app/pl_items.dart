@@ -132,7 +132,9 @@ class PL_Items extends GetView<PL_Items_Controller> {
                                   ],
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                controller.updatePopup(index);
+                              },
                             ),
                             Divider(
                               color: Colors.black.withOpacity(0.2),

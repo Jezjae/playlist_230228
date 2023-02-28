@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:the_last_playlist/service/popup_controller.dart';
 import '../const/const_zip.dart';
 import '../model/music_items_model.dart';
 import '../repo/music_data_repository.dart';
@@ -6,6 +7,7 @@ import '../repo/play_list_network_repository.dart';
 
 class PL_Items_Controller extends GetxController {
 
+  //데이터베이스 정보수정을 위한 키값 저장
   late String pLkey;
 
   //싱글톤처럼 쓰기위함
@@ -62,7 +64,6 @@ class PL_Items_Controller extends GetxController {
   }
 
   void delMusicItems(context, int index){
-
     //곡 리스트에서 삭제
     for(int i = 0; i < playListItemID.length; i++)
     {
@@ -71,13 +72,19 @@ class PL_Items_Controller extends GetxController {
         playListItemID.removeAt(i);
       }
     }
-
     //데이터베이스 수정
     playListNetworkRepository.updatePlayListMusicList(pLkey, playListItemID).then((value) => {
 
     });
   }
 
+  void updatePopup(int index){
+    PopupController.to.setIsPlay = true;
+    PopupController.to.setIsPopup = true;
+    PopupController.to.setPopupImage = playListItems[index].image!;
+    PopupController.to.setPopupTitle = playListItems[index].title!;
+    PopupController.to.setPopupName = playListItems[index].name!;
+  }
 
 
 

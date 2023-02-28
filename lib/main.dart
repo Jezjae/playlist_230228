@@ -5,6 +5,7 @@ import 'package:the_last_playlist/repo/music_data_repository.dart';
 import 'package:the_last_playlist/service/like_playlist_controller.dart';
 import 'package:the_last_playlist/service/pl_item_controller.dart';
 import 'package:the_last_playlist/service/playlist_controller.dart';
+import 'package:the_last_playlist/service/popup_controller.dart';
 import 'app/home_view.dart';
 import 'const/const_zip.dart';
 import 'firebase_options.dart';
@@ -20,6 +21,7 @@ void main() async{
   Get.put(PlayListController());
   Get.put(LikePlayListController());
   Get.put(PL_Items_Controller());
+  Get.put(PopupController());
 
 
   //음악정보 리스트에 담아주기

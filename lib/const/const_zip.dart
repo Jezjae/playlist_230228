@@ -24,3 +24,7 @@ List getMusicDataJson = [];
 
 //가지고있는 전체 음악 담아줄 리스트
 List<MusicItemsModel> musicData =[];
+
+//팝업창이라 플리랑 버튼 통일을 위해 필요함
+int playlistIndex = 0;
+int prePlaylistIndex = 0;

@@ -125,6 +125,23 @@ class MyPlaylist extends GetView<PlayListController> {
                                     ),
                                     Text('${controller.playList[index].title}'),
 
+                                    //재생, 일시정지 버튼
+                                    Obx(() => controller.playList.value![index].isPlay?
+                                    IconButton(onPressed: () {
+                                      controller.updatePause(index);
+                                    }, icon: Icon(Icons.pause, size: 30,)):
+                                    IconButton(
+                                      onPressed: () {
+                                        controller.updatePlay(index);
+                                      },
+                                      icon: Icon(Icons.play_arrow, size: 30,),
+                                    )),
+
+                                    IconButton(onPressed: (){
+                                      controller.updateStop(index);
+                                    }, icon: Icon(Icons.stop, size: 30,)),
+
+                                    //좋아요 버튼
                                     Obx(() => controller.playList[index].isFav?
                                     IconButton(onPressed: () => {
                                       controller.updateUnFav('${controller.playList[index].playListKey}', index)

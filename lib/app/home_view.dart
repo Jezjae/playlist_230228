@@ -1,8 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:the_last_playlist/app/LikePlaylist.dart';
 import 'package:the_last_playlist/app/MyPlaylist.dart';
+
+import '../service/popup_controller.dart';
+import 'PlayPopup.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -12,6 +17,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+
+  //get x 사용을 위해 불러오는 작업
+  PopupController popupController = Get.find();
 
   //페이지 이동하기 위한 리스트에 위젯으로 페이지 넣어주기
   static List<Widget> pages = <Widget>[
@@ -38,7 +46,15 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: pages[_selecIndex],
+      // 페이지 보드
+      body: Stack(
+          children: [
+
+            pages[_selecIndex],
+
+            //재생팝업
+            Obx(()=> popupController.isPopup.value? PlayPopup() : SizedBox.shrink()),
+          ]),
 
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selecIndex,
